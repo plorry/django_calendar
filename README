@@ -1,0 +1,7 @@
+This is an app to be included in a Django project.
+There are two primary models: Calendar and Event.
+Events have a date, name, associated Calendar and optional URL link, type, notes, and image.
+A Calendar has a name, and a set of events (event_set).
+The key feature is the "month_as_table" function, which takes a given month and year, and returns an HTML table of that month, listing dates which have an event in them. They link to a "day_view" url. This can be modified as you like. This is ideal for a mini calendar.
+Unfortunately, this connects the model to the URL structure, which is against best-practices - something I'd like to improve on later.
+Another key function to be built is a "full month table" which does what the existing "month_as_table" function does, but lists the full details of each event on that day's cell.

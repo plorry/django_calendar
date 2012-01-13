@@ -1,11 +1,13 @@
 from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template
-from andrewgardner.Calendar.models import Calendar
+from calendar.models import Calendar
 #Calendar related url patters
+try:
+	calendar = Calendar.objects.get(id=1)
+except:
+	calendar = Calendar.objects.create(name='home_calendar')
 
-calendar = Calendar.objects.get(id=1)
-
-urlpatterns = patterns('andrewgardner.Calendar.views',
+urlpatterns = patterns('calendar.views',
 	(r'^$',                                  direct_to_template, {
 		'template':'object_view/calendar_mini.html',
 		'extra_context' : {
